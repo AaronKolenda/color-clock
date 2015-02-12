@@ -108,11 +108,24 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+var changeBackground = function() {
+
+  $("body").css("background-color", getHex);
+
+}
+
+var displayTime = function() {
+
+  $("#display").html(getCurrentTime());
+
+}
 
 
 
-setInterval(getCurrentTime, 1000);
-setInterval(getRGB, 1000);
+
+
+setInterval(displayTime, 1000);
+setInterval(changeBackground, 1000);
 
 
 //$("#time").html(currTime);
