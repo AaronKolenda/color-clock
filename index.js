@@ -93,10 +93,11 @@ var r = parseInt(arrRGB[0]);
 var g = parseInt(arrRGB[1]);
 var b = parseInt(arrRGB[2]);
 
-var hex = rgbToHex(r, g, g);
+var hex = rgbToHex(r, g, b);
 console.log(hex);
 return hex;
 }
+
 
 
 function componentToHex(c) {
@@ -116,15 +117,28 @@ var changeBackground = function() {
 
 var displayTime = function() {
 
-  $("#display").html(getCurrentTime());
+  $("#time").html(getCurrentTime());
 
 }
 
+var displayHex = function() {
 
+  $("#hex").html(getHex());
+
+}
+
+$(document).ready(function() {
+ $("#display").click(function(evt) {
+    $("#time").toggle();    
+    $("#hex").toggle();
+ });
+
+});
 
 
 
 setInterval(displayTime, 1000);
+setInterval(displayHex, 1000);
 setInterval(changeBackground, 1000);
 
 
