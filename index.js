@@ -129,8 +129,20 @@ var displayHex = function() {
 
 $(document).ready(function() {
  $("#display").click(function(evt) {
-    $("#time").toggle();    
-    $("#hex").toggle();
+    //$("#time").toggle();    
+    //$("#hex").toggle();
+
+    if($("#time").css('display') == 'none') {
+      $("#hex").toggle();
+      $("#time").fadeToggle("slow", "linear");
+      return;
+    }
+
+    if($("#hex").css('display') == 'none') {
+      $("#time").toggle();
+      $("#hex").fadeToggle("slow", "linear");
+    } 
+
  });
 
 });

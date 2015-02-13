@@ -1,7 +1,3 @@
-.time {
-	
-}
-
 .hex {
 	display: none;
 }
@@ -9,4 +5,10 @@
 .display {
 	height: 500px;
 	width: 500px;
+	font-family: 'Kalam', cursive;	margin: auto;
+	font-size: 100px;
+	position: relative;
+	top: 50%;
+	transform: translateY(50%);
+	text-align: center;
 }
