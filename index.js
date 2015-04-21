@@ -8,9 +8,8 @@
 
   It returns a whole number value from 0-255 representing the
   relative CSS RGB value of that time period.
-
-  It's pre-written for you. Best to not muck around with it.
 */
+
 var convertTimeframe = function(amount, unit) {
 
   switch (unit) {
@@ -27,6 +26,7 @@ var convertTimeframe = function(amount, unit) {
   }
 }
 
+// The following functions get the current Hour, Minute, or Second
 
 var getHour = function(){
   var d = new Date();
@@ -48,57 +48,55 @@ var getSec = function(){
   return currSec;
 }
 
+// This function gets the current time and displays it properly
 
 var getCurrentTime = function() {
 
-var hour = getHour();
-var min = getMin();
-var sec = getSec();
+  var hour = getHour();
+  var min = getMin();
+  var sec = getSec();
 
-if (hour < 10) {
-  hour = "0" + hour;
-}
-if (min < 10) {
-  min = "0" + min;
-}
-if (sec < 10) {
-  sec = "0" + sec;
-}
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  if (min < 10) {
+    min = "0" + min;
+  }
+  if (sec < 10) {
+    sec = "0" + sec;
+  }
 
-var currTime = (hour + ":" + min + ":" + sec);
+  var currTime = (hour + ":" + min + ":" + sec);
 
-//console.log(currTime);
 
 return currTime;
 
 }
 
+// This function converts the time to an rgb value
 
 var getRGB = function() {
 
   var rgb = (convertTimeframe(getHour(), "hour")  + " " + convertTimeframe(getMin(), "minute") + " " +
   convertTimeframe(getSec(), "second"));
 
-  //console.log(rgb);
   return rgb;
 
 }
 
+//Next three functions convert rgb to hex
+
 var getHex = function() {
 
-var RGBtemp = getRGB();
-var arrRGB = RGBtemp.split(" ");
-console.log(arrRGB);
-var r = parseInt(arrRGB[0]);
-var g = parseInt(arrRGB[1]);
-var b = parseInt(arrRGB[2]);
+  var RGBtemp = getRGB();
+  var arrRGB = RGBtemp.split(" ");
+  var r = parseInt(arrRGB[0]);
+  var g = parseInt(arrRGB[1]);
+  var b = parseInt(arrRGB[2]);
 
-var hex = rgbToHex(r, g, b);
-console.log(hex);
-return hex;
+  var hex = rgbToHex(r, g, b);
+  return hex;
 }
-
-
 
 function componentToHex(c) {
     var hex = c.toString(16);
@@ -110,27 +108,22 @@ function rgbToHex(r, g, b) {
 }
 
 var changeBackground = function() {
-
   $("body").css("background-color", getHex);
-
 }
 
 var displayTime = function() {
-
   $("#time").html(getCurrentTime());
-
 }
 
 var displayHex = function() {
-
   $("#hex").html(getHex());
-
 }
 
 $(document).ready(function() {
+
+//The user clicks to toggle between time and hex value
+
  $("#display").click(function(evt) {
-    //$("#time").toggle();    
-    //$("#hex").toggle();
 
     if($("#time").css('display') == 'none') {
       $("#hex").toggle();
@@ -147,35 +140,8 @@ $(document).ready(function() {
 
 });
 
-
+//Change the time and background every second
 
 setInterval(displayTime, 1000);
 setInterval(displayHex, 1000);
 setInterval(changeBackground, 1000);
-
-
-//$("#time").html(currTime);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
