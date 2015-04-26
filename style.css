@@ -1,14 +1,20 @@
+body {
+	transition: background-color 1s ease;
+}
+
 .hex {
 	display: none;
 }
 
 .display {
-	height: 500px;
-	width: 500px;
-	font-family: 'Kalam', cursive;	margin: auto;
-	font-size: 100px;
-	position: relative;
-	top: 50%;
-	transform: translateY(50%);
-	text-align: center;
+  height: 150px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  right: 0;
+  font-family: 'Kalam', cursive;
+  font-size: 100px;
 }
